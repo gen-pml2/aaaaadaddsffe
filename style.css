@@ -1285,23 +1285,90 @@ label {
    ========================================================================== */
 
 /* Kerangka Dasar Bubble Chat */
-.msg-bubble {
+/* AREA INPUT PESAN DI BAWAH */
+.chat-input-area {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+    background: #111b21;
+    border-top: 1px solid rgba(0, 242, 234, 0.15);
+    width: 100% !important;
+    box-sizing: border-box !important; /* Mencegah input meluber keluar layar */
+}
+
+/* Kolom Ketik Pesan */
+.chat-input-area input {
+    flex: 1 !important; /* Membuat kolom teks melar otomatis mengisi ruang kosong */
+    min-width: 0 !important; /* KUNCI: Mencegah input memaksa ukuran elemen lain mengecil */
+    background: #2a3942 !important;
+    border: 1px solid rgba(0, 255, 0, 0.2) !important;
+    border-radius: 8px !important;
+    color: white !important;
+    padding: 10px 14px !important;
+    font-size: 15px !important;
+    outline: none !important;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Tombol Kirim Pesan */
+.chat-input-area button {
+    flex-shrink: 0 !important; /* KUNCI: Mencegah tombol penyok/mengecil di HP */
+    background: #00a884 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    transition: 0.2s;
+    white-space: nowrap !important; /* Mencegah teks tombol patah jadi 2 baris */
+}
+
+.chat-input-area button:hover {
+    background: #008f72 !important;
+    box-shadow: 0 0 10px rgba(0, 168, 132, 0.5);
+}
+
+/* --- PERBAIKAN GELEMBUNG CHAT AGAR TIDAK GEPENG --- */
+.chat-messages {
     display: flex !important;
     flex-direction: column !important;
-    padding: 12px 16px !important;
+    gap: 12px !important;
+    padding: 15px !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+}
+
+.msg-row {
+    display: flex !important;
+    width: 100% !important;
+    margin-bottom: 2px !important;
+}
+
+/* Jika pesan dari kita (Kanan) */
+.msg-row.sent {
+    justify-content: flex-end !important;
+}
+
+/* Jika pesan dari orang lain (Kiri) */
+.msg-row.received {
+    justify-content: flex-start !important;
+}
+
+/* Gelembung Pesannya */
+.msg-bubble {
+    max-width: 75% !important; /* KUNCI: Jangan pakai width, pakai max-width persen agar responsif di HP */
+    width: auto !important;
+    padding: 8px 12px !important;
     border-radius: 8px !important;
-    margin: 4px 0 !important;
-    width: fit-content !important;
-    max-width: 85% !important; /* KUNCI: Ubah dari ukuran piksel (px) ke 85% agar adaptif di HP */
-    font-size: 0.9rem !important; 
-    font-family: 'Rajdhani', sans-serif !important;
-    letter-spacing: 0.5px;
-    word-wrap: break-word !important; 
-    overflow-wrap: anywhere !important;
-    position: relative !important; 
-    text-align: left !important;  
+    font-size: 15px !important;
     line-height: 1.4 !important;
-    box-sizing: border-box !important;
+    word-break: break-word !important; /* Mencegah teks panjang merusak kotak */
 }
 
 /* Sisi Kanan (Pesan yang KITA KIRIM) */
