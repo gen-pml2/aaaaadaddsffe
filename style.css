@@ -4864,3 +4864,51 @@ input[type="password"] {
         height: 450px !important; /* Di HP jangan terlalu tinggi agar mudah di-scroll */
     }
 }
+/* ==========================================================================
+   OPTIMASI RESPONSIVE KHUSUS SECTION MESSAGE CHAT DI HP (SMARTPHONE)
+   ========================================================================== */
+@media screen and (max-width: 576px) {
+    /* 1. Sesuaikan ukuran teks gelembung chat agar lebih ramah di layar kecil */
+    .msg-bubble {
+        max-width: 85% !important; /* Beri ruang ekstra agar bubble tidak terlalu sempit */
+        padding: 10px 14px !important;
+        font-size: 0.85rem !important; /* Mengecilkan ukuran font pesan */
+        line-height: 1.35 !important;
+    }
+
+    /* 2. Sesuaikan header chat room aktif di HP */
+    .chat-header-active {
+        padding: 10px 15px !important;
+    }
+    
+    .chat-header-active h4 {
+        font-size: 0.95rem !important; /* Mengecilkan nama user/admin di atas */
+    }
+
+    /* 3. Batasi tinggi area box pesan agar input teks di bawah tidak tenggelam */
+    #chat-msg-box {
+        max-height: calc(100vh - 130px) !important; /* Akurat membagi tinggi sisa layar */
+        padding: 10px !important;
+    }
+
+    /* 4. Sesuaikan area footer input tempat mengetik pesan */
+    .chat-footer-input {
+        padding: 10px 12px !important;
+        gap: 8px !important;
+    }
+
+    /* 5. Kecilkan kolom input teks ketik pesan */
+    .chat-custom-input-field {
+        font-size: 0.85rem !important;
+        padding: 10px 14px !important;
+        border-radius: 20px !important;
+    }
+
+    /* 6. Kecilkan tombol kirim pesan (Kanan) dan tombol kembali (Kiri) */
+    .chat-send-msg-btn,
+    .chat-back-fullscreen-btn {
+        padding: 8px 12px !important;
+        font-size: 0.7rem !important;
+        border-radius: 8px !important;
+    }
+}
